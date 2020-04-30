@@ -1,2 +1,2 @@
 # zentest-demo
-It is demo project for test web application.
+This is a demo project for testing a web application.
