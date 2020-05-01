@@ -4,14 +4,14 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from sell_tests.driver_setup.driver_creator import DriverCreator
+from sell_tests.driver_setup.driver_creator import DriverManager
 
 
 class ElementFinder:
     """Class using various expectation to find web element"""
 
     def __init__(self, condition):
-        self.driver = DriverCreator.get_driver()
+        self.driver = DriverManager.get_driver()
         self.timeout = 15
         self.web_driver_wait = WebDriverWait(self.driver, self.timeout)
         self.condition = condition

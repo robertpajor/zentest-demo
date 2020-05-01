@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 
-from sell_tests.driver_setup.driver_creator import DriverCreator
+from sell_tests.driver_setup.driver_creator import DriverManager
 from sell_tests.helpers.web_elements.element_finder import PresentElement
 
 
@@ -15,7 +15,7 @@ class AbstractElement:
         """
         self.locator = locator
         self.locator_type = locator_type
-        self.driver = DriverCreator.get_driver()
+        self.driver = DriverManager.get_driver()
 
     def get(self) -> WebElement:
         """
