@@ -6,17 +6,20 @@ class DriverCreator:
     relative_driver_path = "./chrome_driver/chromedriver"
     driver = None
 
-    def __init__(self):
-        print("webdriver init")
-        self.create()
+    @staticmethod
+    def create():
+        DriverCreator.driver = webdriver.Chrome(DriverCreator.__get_driver_path())
 
-    def create(self):
-        self.driver = webdriver.Chrome(self.__get_driver_path())
+    @staticmethod
+    def quit():
+        DriverCreator.driver.quit()
 
-    def quit(self):
-        self.driver.quit()
+    @staticmethod
+    def get_driver():
+        return DriverCreator.driver
 
-    def __get_driver_path(self):
+    @staticmethod
+    def __get_driver_path():
         current_file_dir = os.path.dirname(__file__)
-        driver_path = os.path.join(current_file_dir, self.relative_driver_path)
+        driver_path = os.path.join(current_file_dir, DriverCreator.relative_driver_path)
         return driver_path
