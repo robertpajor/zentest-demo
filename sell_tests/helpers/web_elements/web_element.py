@@ -88,3 +88,23 @@ class ElementByName(AbstractElement):
         :param name: string locator used to for find the element
         """
         super(ElementByName, self).__init__(name, By.NAME)
+
+
+class ElementByClassName(AbstractElement):
+    """Class for searching element using name"""
+
+    def __init__(self, name: str):
+        """
+        :param name: string locator used to for find the element
+        """
+        super(ElementByClassName, self).__init__(name, By.CLASS_NAME)
+
+
+class ElementByTagName(AbstractElement):
+    """Class for searching element using name"""
+
+    def __init__(self, name: str):
+        """
+        :param name: string locator used to for find the element
+        """
+        super(ElementByTagName, self).__init__(name, By.TAG_NAME)
