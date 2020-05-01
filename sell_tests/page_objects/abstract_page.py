@@ -1,4 +1,5 @@
 from sell_tests.driver_setup.driver_creator import DriverManager
+from sell_tests.helpers.web_elements.web_element import ElementByTagName
 
 
 class AbstractPage:
@@ -6,6 +7,7 @@ class AbstractPage:
 
     def __init__(self):
         self.driver = DriverManager.get_driver()
+        self.iframe = ElementByTagName("iframe")
 
     def go_to(self, url: str):
         """ Loads a web page in the current browser session. """
@@ -21,7 +23,15 @@ class AbstractPage:
 
     def get_title(self) -> str:
         """
-        Returns the title of the current page
+        Returns the title of the current page.
         :return: Page title
         """
         return self.driver.title
+
+    def switch_to_iframe(self):
+        """ Switches focus to the specified frame. """
+        self.driver.switch_to.frame(self.iframe.get())
+
+    def switch_to_default_content(self):
+        """ Switch focus to the default frame. """
+        self.driver.switch_to.default_content()
