@@ -7,7 +7,7 @@ class LoginPage(AbstractPage):
     def __init__(self):
         super(LoginPage, self).__init__()
         self.url = "https://zentest-demo.zendesk.com"
-        self.email_field_id = ElementById("user_email")
+        self.email_field = ElementById("user_email")
         self.password_field = ElementById("user_password")
         self.sign_in_button = ElementByName("commit")
 
@@ -16,7 +16,7 @@ class LoginPage(AbstractPage):
         self.switch_to_iframe()
 
     def set_email(self, email: str):
-        self.email_field_id.set_value(email)
+        self.email_field.set_value(email)
 
     def set_password(self, password: str):
         self.password_field.set_value(password)
