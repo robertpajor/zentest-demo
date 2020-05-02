@@ -7,11 +7,15 @@ class NavigationBarPage(AbstractPage):
     def __init__(self):
         super(NavigationBarPage, self).__init__()
         self.leads = ElementById("nav-item-leads")
+        self.settings = ElementById("nav-settings")
         self.add_menu = ElementById("global-add")
         self.lead_in_add_menu = ElementByXpath("//*[@data-role='menu-item' and contains(. , 'Lead')]")
 
     def click_leads_button(self):
         self.leads.click()
+
+    def click_settings_button(self):
+        self.settings.click()
 
     def open_add_menu(self):
         self.add_menu.click()
