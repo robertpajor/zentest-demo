@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 
 from sell_tests.driver_setup.driver_creator import DriverManager
-from sell_tests.helpers.web_elements.element_finder import PresentElement
+from sell_tests.helpers.web_elements.element_finder import PresentElement, PresentElements
 
 
 class AbstractElement:
@@ -18,15 +18,15 @@ class AbstractElement:
         self.driver = DriverManager.get_driver()
 
     def get(self) -> WebElement:
-        """
-        Method to get web element
-        """
+        """ Method to get web element """
         return PresentElement(self.locator, self.locator_type).create()
 
+    def get_list(self) -> [WebElement]:
+        """ Method to get list of web elements """
+        return PresentElements(self.locator, self.locator_type).create()
+
     def click(self):
-        """
-        Method to click in web element
-        """
+        """ Method to click in web element """
         self.get().click()
 
     def set_value(self, value: str):
@@ -61,7 +61,7 @@ class AbstractElement:
 
 
 class ElementById(AbstractElement):
-    """Class for searching element using id"""
+    """ Class for searching element using id """
 
     def __init__(self, element_id: str):
         """
@@ -71,7 +71,7 @@ class ElementById(AbstractElement):
 
 
 class ElementByXpath(AbstractElement):
-    """Class for searching element using xpath"""
+    """ Class for searching element using xpath """
 
     def __init__(self, xpath: str):
         """
@@ -81,7 +81,7 @@ class ElementByXpath(AbstractElement):
 
 
 class ElementByName(AbstractElement):
-    """Class for searching element using name"""
+    """ Class for searching element using name """
 
     def __init__(self, name: str):
         """
@@ -91,7 +91,7 @@ class ElementByName(AbstractElement):
 
 
 class ElementByClassName(AbstractElement):
-    """Class for searching element using name"""
+    """ Class for searching element using name """
 
     def __init__(self, name: str):
         """
@@ -101,7 +101,7 @@ class ElementByClassName(AbstractElement):
 
 
 class ElementByTagName(AbstractElement):
-    """Class for searching element using name"""
+    """ Class for searching element using name """
 
     def __init__(self, name: str):
         """
