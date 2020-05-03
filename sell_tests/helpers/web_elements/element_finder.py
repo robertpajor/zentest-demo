@@ -4,7 +4,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from sell_tests.driver_setup.driver_creator import DriverManager
+from sell_tests.configurations.driver_creator import DriverManager
 
 
 class ElementFinder:

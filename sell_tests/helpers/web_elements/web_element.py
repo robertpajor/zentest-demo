@@ -2,7 +2,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
-from sell_tests.driver_setup.driver_creator import DriverManager
+from sell_tests.configurations.driver_creator import DriverManager
 from sell_tests.helpers.web_elements.element_finder import PresentElements, VisibilityElement
 
 

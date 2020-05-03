@@ -1,6 +1,6 @@
 from behave.fixture import fixture_call_params, fixture
 
-from sell_tests.driver_setup.configuration import EMAIL, PASSWORD
+from sell_tests.configurations.configuration import EMAIL, PASSWORD
 from sell_tests.page_objects.login_page import LoginPage
 
 
