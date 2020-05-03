@@ -24,18 +24,18 @@ class ElementFinder:
         return self.web_driver_wait.until(self.condition)
 
 
-class PresentElement(ElementFinder):
+class VisibilityElement(ElementFinder):
     """
-    Class using expectation for checking that an element is present on the DOM
-    of a page. This does not necessarily mean that the element is visible.
+    Class using expectation for checking that an element is present on the DOM of a page and visible.
+    Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
     """
 
     def __init__(self, locator, locator_type):
         """
-        :param locator: Locator value
+        :param locator: locator id
         :param locator_type: locator type method to search
         """
-        super(PresentElement, self).__init__(ec.presence_of_element_located((locator_type, locator)))
+        super(VisibilityElement, self).__init__(ec.visibility_of_element_located((locator_type, locator)))
 
 
 class PresentElements(ElementFinder):

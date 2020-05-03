@@ -1,9 +1,9 @@
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 
 from sell_tests.driver_setup.driver_creator import DriverManager
-from sell_tests.helpers.web_elements.element_finder import PresentElement, PresentElements
+from sell_tests.helpers.web_elements.element_finder import PresentElements, VisibilityElement
 
 
 class AbstractElement:
@@ -19,7 +19,7 @@ class AbstractElement:
 
     def get(self) -> WebElement:
         """ Method to get web element """
-        return PresentElement(self.locator, self.locator_type).create()
+        return VisibilityElement(self.locator, self.locator_type).create()
 
     def get_list(self) -> [WebElement]:
         """ Method to get list of web elements """
@@ -38,13 +38,6 @@ class AbstractElement:
         web_element.clear()
         web_element.send_keys(value)
 
-    def make_keyboard_action(self, key_value: Keys):
-        """
-        Method to typing to element keyboard action
-        :param key_value: Value form `Keys` enum class
-        """
-        self.get().send_keys(key_value)
-
     def get_value(self) -> str:
         """
         Method to get text from value of element
@@ -57,7 +50,10 @@ class AbstractElement:
         Method to check if element is displayed
         :return: True or False
         """
-        return self.get().is_displayed()
+        try:
+            return self.get().is_displayed()
+        except (NoSuchElementException, TimeoutException):
+            return False
 
 
 class ElementById(AbstractElement):
