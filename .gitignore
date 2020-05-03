@@ -108,6 +108,6 @@ dmypy.json
 .pyre/
 
 # ChromeDriver binary file
-**/chrome_driver/
+**/configurations/chromedriver
 
 # End of https://www.gitignore.io/api/python

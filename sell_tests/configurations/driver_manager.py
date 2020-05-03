@@ -3,7 +3,7 @@ from selenium import webdriver
 
 
 class DriverManager:
-    relative_driver_path = "./chrome_driver/chromedriver"
+    relative_driver_path = "./chromedriver"
     driver = None
 
     @staticmethod
