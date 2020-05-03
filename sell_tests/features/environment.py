@@ -1,6 +1,6 @@
 from behave.fixture import use_fixture_by_tag
 
-from sell_tests.configurations.driver_creator import DriverManager
+from sell_tests.configurations.driver_manager import DriverManager
 from sell_tests.helpers.fixtures import FIXTURES
 
 

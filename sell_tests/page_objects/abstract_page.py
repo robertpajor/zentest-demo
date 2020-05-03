@@ -1,4 +1,4 @@
-from sell_tests.configurations.driver_creator import DriverManager
+from sell_tests.configurations.driver_manager import DriverManager
 from sell_tests.helpers.web_elements.web_element import ElementByTagName
 
 
