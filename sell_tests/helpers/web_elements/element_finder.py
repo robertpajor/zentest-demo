@@ -8,7 +8,7 @@ from sell_tests.configurations.driver_manager import DriverManager
 
 
 class ElementFinder:
-    """Class using various expectation to find web element"""
+    """ The base class for finding web elements """
 
     def __init__(self, condition):
         self.driver = DriverManager.get_driver()
@@ -18,7 +18,7 @@ class ElementFinder:
 
     def create(self) -> WebElement or List[WebElement]:
         """
-        Method to create web element using proper condition
+        Method creates web element using proper condition
         :return: Web Element or List[WebElement]
         """
         return self.web_driver_wait.until(self.condition)

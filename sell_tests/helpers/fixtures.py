@@ -18,7 +18,7 @@ def login(context):
 
 def __wait_until_dashboard_is_loaded():
     dashboard_page = DashboardPage()
-    wait_until(dashboard_page.is_dashboard_title_displayed)
+    wait_until(dashboard_page.is_dashboard_title_displayed, timeout_message="Dashboard title isn't displayed.")
 
 
 FIXTURES = {

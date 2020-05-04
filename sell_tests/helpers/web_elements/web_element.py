@@ -7,6 +7,7 @@ from sell_tests.helpers.web_elements.element_finder import PresentElements, Visi
 
 
 class AbstractElement:
+    """ The class is responsible for getting web elements and performing actions on it. """
 
     def __init__(self, locator: str, locator_type: By):
         """
@@ -18,20 +19,20 @@ class AbstractElement:
         self.driver = DriverManager.get_driver()
 
     def get(self) -> WebElement:
-        """ Method to get web element """
+        """ Method gets web element """
         return VisibilityElement(self.locator, self.locator_type).create()
 
     def get_list(self) -> [WebElement]:
-        """ Method to get list of web elements """
+        """ Method gets list of web elements """
         return PresentElements(self.locator, self.locator_type).create()
 
     def click(self):
-        """ Method to click in web element """
+        """ Method clicks in web element """
         self.get().click()
 
     def set_value(self, value: str):
         """
-        Method to set value in field. First it clean field and then set new value
+        Method sets value in field. First it clean field and then set new value
         :param value: New value
         """
         web_element = self.get()
@@ -40,14 +41,14 @@ class AbstractElement:
 
     def get_value(self) -> str:
         """
-        Method to get text from value of element
+        Method gets text from value of element
         :return: Text from element
         """
         return self.get().text
 
     def is_displayed(self) -> bool:
         """
-        Method to check if element is displayed
+        Method checks if element is displayed
         :return: True or False
         """
         try:
@@ -87,7 +88,7 @@ class ElementByName(AbstractElement):
 
 
 class ElementByClassName(AbstractElement):
-    """ Class for searching element using name """
+    """ Class for searching element using class name """
 
     def __init__(self, name: str):
         """
@@ -97,7 +98,7 @@ class ElementByClassName(AbstractElement):
 
 
 class ElementByTagName(AbstractElement):
-    """ Class for searching element using name """
+    """ Class for searching element using tag name """
 
     def __init__(self, name: str):
         """
