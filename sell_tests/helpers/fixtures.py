@@ -8,6 +8,7 @@ from sell_tests.page_objects.login_page import LoginPage
 
 @fixture
 def login(context):
+    """ Fixture opens login page and login user """
     login_page = LoginPage()
     login_page.open()
     login_page.set_email(EMAIL)

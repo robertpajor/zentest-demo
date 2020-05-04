@@ -5,6 +5,7 @@ from sell_tests.helpers.fixtures import FIXTURES
 
 
 def before_feature(context, feature):
+    """ Function launch before each behave feature """
     DriverManager.create()
     for tag in feature.tags:
         if tag.startswith("fixture."):
@@ -12,7 +13,5 @@ def before_feature(context, feature):
 
 
 def after_feature(context, feature):
-    # for tag in feature.tags:
-    #     if tag.startswith("post."):
-    #         use_fixture_by_tag(tag, context, POST_ACTIONS)
+    """ Function launch after each behave feature """
     DriverManager.quit()

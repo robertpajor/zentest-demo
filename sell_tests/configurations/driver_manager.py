@@ -3,6 +3,7 @@ from selenium import webdriver
 
 
 class DriverManager:
+    """ The class is responsible for creating, managing and clearing web driver. """
     relative_driver_path = "./chromedriver"
     driver = None
 
